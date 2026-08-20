@@ -1,0 +1,43 @@
+﻿services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: crn-product-api
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=CRNProductDB;User Id=sa;Password=CRN_SqlServer@12345;TrustServerCertificate=True;"
+
+      Jwt__Key: "CRN_Product_API_SuperSecretKey_2026_AtLeast32Characters"
+      Jwt__Issuer: "CRN.Product.API"
+      Jwt__Audience: "CRN.Product.Client"
+
+    depends_on:
+      - sqlserver
+
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+
+    container_name: crn-product-sqlserver
+
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "CRN_SqlServer@12345"
+
+    ports:
+      - "1433:1433"
+
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+
+volumes:
+  sqlserver_data:

@@ -1,0 +1,75 @@
+﻿# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# ASP.NET Core
+wwwroot/
+
+# Local database files
+*.mdf
+*.ldf
+*.ndf
+
+# Publish output
+publish/
+PublishOutput/
+
+# Temporary files
+*.tmp
+*.temp
+
+# User-specific configuration
+appsettings.Local.json
+appsettings.Production.json
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper*
+
+# Coverage
+coverage/
+coverage.xml
+
+# Generated files
+GeneratedFiles/
+
+# Test project build output
+CRN.Product.API.Tests/bin/
+CRN.Product.API.Tests/obj/
